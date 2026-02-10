@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Our Memories 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ee5a6f 50%, #c44569 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            font-size: 2em;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float-up 15s infinite;
+            z-index: 0;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .heart-icon {
+            font-size: 3.5em;
+            display: inline-block;
+            margin-bottom: 15px;
+            animation: heartbeat 1.3s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        p.lead {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1em;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateZ(0);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .card img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .card:hover img {
+            transform: scale(1.08) rotate(2deg);
+            filter: brightness(1.1);
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 15px 12px;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            font-size: 0.95em;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .caption {
+            opacity: 1;
+        }
+
+        .placeholder {
+            color: #ccc;
+            font-weight: 600;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ee5a6f 100%);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(238, 90, 111, 0.3);
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(238, 90, 111, 0.5);
+            background: linear-gradient(135deg, #ee5a6f 0%, #ff6b9d 100%);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p.lead {
+                font-size: 0.95em;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .card {
+                height: 280px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" style="left: 10%; animation-delay: 0s;">💕</div>
+    <div class="floating-hearts" style="left: 20%; animation-delay: 2s;">💖</div>
+    <div class="floating-hearts" style="left: 30%; animation-delay: 4s;">💗</div>
+    <div class="floating-hearts" style="left: 70%; animation-delay: 1s;">💝</div>
+    <div class="floating-hearts" style="left: 80%; animation-delay: 3s;">💞</div>
+    <div class="floating-hearts" style="left: 90%; animation-delay: 5s;">💘</div>
+
+    <div class="wrap">
+        <header>
+            <div class="heart-icon">💕</div>
+            <h1>Our Beautiful Memories</h1>
+            <p class="lead">A collection of moments we've shared together</p>
+        </header>
+
+        <section class="grid" id="imagesGrid">
+            <!-- images inserted by JS -->
+        </section>
+
+        <div class="nav">
+            <a class="btn" href="valentines_day_gifts.html"> ← Go to begin</a>
+            <a class="btn" href="valentines_wish.html">💌 ← Wish </a>
+        </div>
+    </div>
+
+    <script>
+        // Load up to six photos from localStorage
+        function loadSix() {
+            const grid = document.getElementById('imagesGrid');
+            grid.innerHTML = '';
+            let photos = [];
+            try {
+                const saved = localStorage.getItem('valentinePhotos');
+                if (saved) photos = JSON.parse(saved);
+            } catch (e) { photos = []; }
+
+            // If none saved, try default list embedded in photo_gallery (fallback paths)
+            if (!photos || photos.length === 0) {
+                photos = [
+                    {url: 'file:///C:/Users/Dell/OneDrive/Pictures/manu/WhatsApp Image 2026-02-09 at 10.06.18 PM (2).jpeg', caption:'Memory 1'},
+                    {url: 'file:///C:/Users/Dell/OneDrive/Pictures/manu/WhatsApp Image 2026-02-09 at 10.06.18 PM (3).jpeg', caption:'Memory 2'},
+                    {url: 'file:///C:/Users/Dell/OneDrive/Pictures/manu/WhatsApp Image 2026-02-09 at 10.06.14 PM.jpeg', caption:'Memory 3'},
+                    {url: 'file:///C:/Users/Dell/OneDrive/Pictures/manu/WhatsApp Image 2026-02-09 at 10.06.17 PM.jpeg', caption:'Memory 4'},
+                    {url: '', caption:'Placeholder 5'},
+                    {url: '', caption:'Placeholder 6'}
+                ];
+            }
+
+            // Ensure we have 6 entries
+            while (photos.length < 6) photos.push({url:'',caption:'Placeholder'});
+
+            photos.slice(0,6).forEach((p, i) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                if (p.url) {
+                    const img = document.createElement('img');
+                    img.src = p.url;
+                    img.alt = p.caption || ('Photo '+(i+1));
+                    img.onerror = function(){
+                        card.innerHTML = '<div class="placeholder">Image not available<br>' + (p.caption||'') + '</div>';
+                    };
+                    card.appendChild(img);
+                    if (p.caption) {
+                        const c = document.createElement('div'); c.className='caption'; c.textContent = p.caption; card.appendChild(c);
+                    }
+                } else {
+                    card.innerHTML = '<div class="placeholder">No image</div>';
+                }
+                grid.appendChild(card);
+            });
+        }
+
+        window.addEventListener('load', loadSix);
+
+        // Normalize a Windows path or file:/// URL to an encoded URL
+        function normalizePath(p) {
+            let url = p.trim();
+            if (!url) return '';
+            if (url.startsWith('file:///')) return encodeURI(url);
+            // Windows absolute path like C:\Users\...
+            if (/^[A-Za-z]:\\/.test(url) || /^[A-Za-z]:\//.test(url) ) {
+                url = url.replace(/\\\\/g, '/').replace(/\\/g, '/');
+                if (!url.startsWith('file:///')) url = 'file:///' + url;
+                return encodeURI(url);
+            }
+            // If starts with http(s) keep
+            if (/^https?:\/\//i.test(url)) return encodeURI(url);
+            // otherwise try to encode as-is
+            try { return encodeURI(url); } catch (e) { return url; }
+        }
+
+        window.addEventListener('load', loadSix);
+    </script>    
+</body>
+</html>

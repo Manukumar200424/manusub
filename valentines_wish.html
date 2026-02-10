@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .main-heart {
+            font-size: 6em;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: heartPulse 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.6));
+        }
+
+        @keyframes heartPulse {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.15) rotate(5deg);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wish-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            font-weight: 300;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .wish-text strong {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .special-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            color: #ffe4e1;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        .gift-section {
+            margin-top: 40px;
+            animation: slideUp 0.8s ease-out 0.9s both;
+        }
+
+        .gift-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .gift-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gift-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gift-emoji {
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-message {
+            margin-top: 40px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-style: italic;
+            animation: slideUp 0.8s ease-out 1.2s both;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .back-button {
+            margin-top: 35px;
+            display: inline-block;
+            padding: 12px 35px;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .decorative-line {
+            width: 80px;
+            height: 3px;
+            background: white;
+            margin: 20px auto;
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .main-heart {
+                font-size: 4em;
+            }
+
+            .special-message {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .wish-text {
+                font-size: 1em;
+            }
+
+            .message-box {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="main-heart">💕</div>
+            <h1>Happy Valentine's Day</h1>
+            <p class="subtitle">To the Most Special Person in My Life (ಹೆಂಡ್ತಿ)</p>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="message-box">
+            <p class="wish-text">
+                You make every day feel like Valentine's Day. Your smile brightens my world, 
+                your presence brings peace to my heart, and your love means everything to me.
+                i am so far from you, 
+                <br><br>
+                <strong> Soory for all what insult to you, some times i feel regreate about whate i mis with you,Thank you for being my love, my best friend, my happiness and my greatest blessing.</strong>
+            </p>
+        </div>
+
+        <div class="special-message">Forever yours 💑</div>
+
+        <div class="gift-section">
+            <h2>What This Day Means to Me:</h2>
+            <div class="gifts-grid">
+                <div class="gift-item">
+                    <span class="gift-emoji">❤️</span>
+                    <strong>Love</strong>
+                    <p>Pure and endless</p>
+                </div>
+                <div class="gift-item">
+                    <span class="gift-emoji">⭐</span>
+                    <strong>Hope</strong>
+                    <p>For our future</p>
+                </div>
+                <div class="gift-item">
+                    <span class="gift-emoji">🌹</span>
+                    <strong>Romance</strong>
+                    <p>In every moment</p>
+                </div>
+                <div class="gift-item">
+                    <span class="gift-emoji">🎁</span>
+                    <strong>Gifts</strong>
+                    <p>Of time together</p>
+                </div>
+                <div class="gift-item">
+                    <span class="gift-emoji">💫</span>
+                    <strong>Dreams</strong>
+                    <p>We'll build</p>
+                </div>
+                <div class="gift-item">
+                    <span class="gift-emoji">🌟</span>
+                    <strong>Forever</strong>
+                    <p>Starting now</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="footer-message">
+            You are my favorite notification, my favorite song, my favorite reason to smile. 
+            Every moment with you is a moment I'll treasure forever. ✨
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="valentines_day_gifts.html" class="back-button">← Go to begin</a>
+            <a href="show_images.html" class="back-button">Our memories 📸</a>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.width = (Math.random() * 8 + 4) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particle.style.opacity = Math.random() * 0.5 + 0.3;
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
